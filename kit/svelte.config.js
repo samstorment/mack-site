@@ -8,7 +8,11 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			"$sanity": "src/sanity",
+			"$sanity/*": "src/sanity/*",
+		}
 	}
 };
 
