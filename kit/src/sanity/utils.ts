@@ -1,4 +1,4 @@
-import type { Post, PostSummary } from '$lib/types/blog';
+import type { Heading, Post, PostSummary, SanityHeading } from '$lib/types/blog';
 import sanity from '$sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
@@ -17,4 +17,26 @@ export function mapPost(p: Post | PostSummary) {
         },
         thumbnail: urlFor(p.thumbnail).url()
     };
+}
+
+
+export function generateHeadingSlug(headingText: string) {
+    var alphaNumericOnly = headingText.replace(/[^0-9a-z ]/gi, '');
+    return alphaNumericOnly.toLowerCase().replaceAll(' ', '-');
+}
+
+export function getHeadingText(children: any[]): string {
+    return children.map(c => c.text).join('');
+}
+
+export function getSanityHeadings(headings: SanityHeading[]): Heading[] {
+    return headings.map(h => {
+        const text = getHeadingText(h.children);
+
+        return {
+            depth: parseInt(h.style[1]),
+            slug: generateHeadingSlug(text),
+            text: text
+        }
+    });
 }

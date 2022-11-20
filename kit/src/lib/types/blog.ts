@@ -1,3 +1,17 @@
+export type Heading = {
+    depth: number;
+    slug: string;
+    text: string;
+}
+
+export type SanityHeading = {
+    style: string;
+    children: [{
+        text: string,
+    }]
+}
+
+
 export interface PostSummary {
     author: Author,
     createdAt: string,
@@ -10,7 +24,8 @@ export interface PostSummary {
 }
 
 export interface Post extends PostSummary {
-    body: any[]
+    body: any[],
+    headings: SanityHeading[]
 }
 
 export interface Author {

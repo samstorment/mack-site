@@ -1,12 +1,24 @@
-<header>Header</header>
+<script lang="ts">
+    import Header from "./Header.svelte";
+
+</script>
+
+
+<Header />
 <main>
     <slot />
 </main>
 
-
 <style>
-    header {
-        border-bottom: 1px solid lightgray;
-        padding: 1em;
+    :global(#svelte) {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    main {
+        height: 100%;
+        flex: 1;
     }
 </style>

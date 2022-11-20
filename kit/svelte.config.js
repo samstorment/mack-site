@@ -12,6 +12,8 @@ const config = {
 		alias: {
 			"$sanity": "src/sanity",
 			"$sanity/*": "src/sanity/*",
+			"$images": "src/images",
+			"$images/*": "src/images/*",
 		}
 	}
 };

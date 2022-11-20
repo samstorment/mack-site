@@ -1,5 +1,10 @@
-<script>
-    console.log($$props);
+<script lang="ts">
+    import { urlFor } from "$sanity/utils";
+
+    export let portableText: any;
+
+    const { value } = portableText;
+    let src = urlFor(value).url();
 </script>
 
-<div style="background-color: orange;">FUCK</div>
+<img {src} alt={"alt text"} />

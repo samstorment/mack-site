@@ -5,23 +5,35 @@
     export let data: PageData;
 </script>
 
+<div id="page">
 
-<div id="posts">
-
-    {#each data.posts as post}
-        <PostSummary {post} />
-    {/each}
+    <h1>Blog Posts</h1>
+    <div id="posts">
+        
+        {#each data.posts as post}
+            <PostSummary {post} />
+        {/each}
+    </div>
 </div>
 
-<pre>{JSON.stringify(data.posts, null, 4)}</pre>
+<!-- <pre>{JSON.stringify(data.posts, null, 4)}</pre> -->
 
 
 
 <style>
-    #posts {
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    #page {
+        max-width: 1000px;
+        margin: 0 auto;
         padding: 1em;
+    }
+
+    #posts {
         gap: 1em;
-        display: grid;
-        max-width: 600px;
+        display: flex;
+        flex-wrap: wrap;
     }
 </style>
