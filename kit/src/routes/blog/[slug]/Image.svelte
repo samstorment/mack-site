@@ -8,3 +8,10 @@
 </script>
 
 <img {src} alt={"alt text"} />
+
+
+<style>
+    img {
+        max-height: 400px;
+    }
+</style>

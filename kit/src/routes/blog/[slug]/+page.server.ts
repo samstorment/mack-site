@@ -8,7 +8,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
     const { slug } = params;
 
-    const query = groq`*[_type == 'post' && isPublished && slug.current == '${slug}'] {
+    const query = groq`*[_type == 'post' && isPublished && slug.current == $slug] {
         title,
         excerpt,
         thumbnail,
@@ -21,7 +21,7 @@ export const load: PageServerLoad = async ({ params }) => {
         "headings": body[length(style) == 2 && string::startsWith(style, "h")]
     }[0]`;
     
-    const post = mapPost(await sanity.fetch<Post>(query)) as Post;
+    const post = mapPost(await sanity.fetch<Post>(query, { slug })) as Post;
 
     return { 
         post

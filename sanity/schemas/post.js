@@ -58,6 +58,7 @@ export default {
             // options: {
             //     layout: 'tags'
             // }
+            validation: Rule => Rule.unique().max(6)
         },
         {
             title: 'Body',

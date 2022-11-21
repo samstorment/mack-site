@@ -1,5 +1,7 @@
 <script lang="ts">
     import type { PageData } from './$types';
+    import PostFooter from './PostFooter.svelte';
+    import PostList from './PostList.svelte';
     import PostSummary from './PostSummary.svelte';
 
     export let data: PageData;
@@ -8,17 +10,9 @@
 <div id="page">
 
     <h1>Blog Posts</h1>
-    <div id="posts">
-        
-        {#each data.posts as post}
-            <PostSummary {post} />
-        {/each}
-    </div>
+
+    <PostList posts={data.posts} />
 </div>
-
-<!-- <pre>{JSON.stringify(data.posts, null, 4)}</pre> -->
-
-
 
 <style>
     h1 {
@@ -29,11 +23,5 @@
         max-width: 1000px;
         margin: 0 auto;
         padding: 1em;
-    }
-
-    #posts {
-        gap: 1em;
-        display: flex;
-        flex-wrap: wrap;
     }
 </style>

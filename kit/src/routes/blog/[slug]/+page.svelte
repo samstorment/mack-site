@@ -2,6 +2,7 @@
     import { getSanityHeadings } from '$sanity/utils';
     import { PortableText } from '@portabletext/svelte'
     import { onMount } from 'svelte';
+    import PostFooter from '../PostFooter.svelte';
     import type { PageData } from './$types';
     import Aside from './Aside.svelte';
     import Blockquote from './Blockquote.svelte';
@@ -24,7 +25,7 @@
     <div id="content">
         <section id="post-info">
             <h1>{post.title}</h1>
-            <p>{post.author.name}</p>
+            <a href="/contact">{post.author.name}</a>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
         </section>
         
@@ -60,6 +61,8 @@
     <Aside headings={getSanityHeadings(post.headings)} bind:sidebarOpen />
 </div>
 
+<PostFooter tags={post.tags} />
+
 
 
 <style>
@@ -93,7 +96,7 @@
 
     :global(article a) {
         text-align: underline;
-        color: #36c;
+        color: var(--clr-link);
         font-weight: bold;
     }
 </style>

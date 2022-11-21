@@ -2,6 +2,7 @@
     import blog from '$images/blog.png';
     import cool from '$images/cool.png';
     import BackgroundAnimation from '$lib/components/BackgroundAnimation.svelte';
+    import { onMount } from 'svelte';
 </script>
 
 <div id="page">
@@ -15,7 +16,7 @@
             <span>Blog</span>
         </a>
         <a href="/contact">
-            <img src={cool} alt="cool" />
+            <img src={cool} alt="Contact"/>
             <span>Contact</span>
         </a>
     </nav>
@@ -76,7 +77,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition-property: box-shadow, transform;
+        transition-property: transform;
         transition-duration: 200ms;
         transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
         /* transition-delay: 0 300ms; */

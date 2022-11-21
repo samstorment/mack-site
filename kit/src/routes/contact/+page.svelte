@@ -23,43 +23,39 @@
 
 <style>
     #page {
-        text-align: center;
         padding: 1em;
-        flex: 1;
+        text-align: center;
         height: 100%;
-        display: grid;
-        place-content: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
 
     h1 {
-        font-size: min(15vw, 8rem);
-        /* background-image: linear-gradient(to right, transparent, limegreen); */
-        /* background-color: rgba(255, 192, 203, 0.75); */
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
         margin-bottom: 1rem;
+        font-size: 2rem;
     }
 
     nav {
-        display: grid;
-        place-content: center;
-        gap: .5em;
-    }
-
-    a {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-        gap: 2em;
-        font-size: 1.25rem;
+        gap: 1em;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 600px;
+        margin: 0 auto;
     }
 
     i {
         font-size: 1.5rem;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: .5em;
+        padding: 1em;
+        justify-content: center;
+        white-space: nowrap;
     }
 
     a:hover {
